@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.homepage--image{
+    width: 100%;
+}
+.Welcome--header{
+    font-size: 40px;
+    margin: 25px 0;
+}
+.Welcome--text{
+    font-size: 22px;
+    width: 70%;
+    line-height: 35px;
+    text-align: left;
+    position: relative;
+    left: 150px
+}
+.about--intro{
+    margin: 10px 30px;
+}
+
+
+.nav--bar{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgb(87, 107, 81);
+    height: 10vh;
+}
+.nav--lists{
+    display: flex;
+    margin: 10px 30px;
+}
+.nav--lists li{
+    list-style: none;
+    text-decoration: none;
+    margin: 20px 40px;
+    padding: 10px;
+    /* border: 1px solid black; */
+    color: #dadada;
+}
+
+.nav--lists li:hover{
+    border-bottom: 2px solid white;
+    border-bottom-width: 2px;
+    border-radius: 2px;
+}
+.nav--lists li a{
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    color: #fff;
+    padding: 5px;
+}
+
+.nav--bar .logo{
+    position: relative;
+    margin: 30px 10%;
+    font-family: 'Times New Roman', Times, serif;
+    color: #fff
+}

@@ -15,7 +15,7 @@ apiRouters.get("/api/hotels", (req, res) => {
     res.json({
         hotelsData
     });
-})
+});
 
 
 

@@ -52,7 +52,7 @@ const Hotel = new Schema({
         type: Boolean,
         default: false
     }
-});
+}, {timestamps: true});
 
 
 

@@ -1,8 +1,9 @@
 import express from "express";
-import cors from "cors"
-import ApiRouter from "./routes/index.js"
+import cors from "cors";
+import ApiRouter from "./routes/index.js";
 import mongoose from "mongoose";
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -21,13 +22,23 @@ const corsOptions = {
     origin: ["http://localhost:5173"],
 }
 //Midlewares
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(cors(corsOptions));
 app.use(ApiRouter);
-app.use((req, res, next) => {
-    console.log("Hi i am a middleware");
+
+//Error handling middleware.
+app.use((err, req, res, next) => {
+    const errStatus = err.status || 500;
+    const errMessage = err.message || "Something went wrong";
+    res.status(errStatus).json({
+        success: false,
+        status: errStatus,
+        message: errMessage,
+        stack : err.stack,
+    });
 });
 
 

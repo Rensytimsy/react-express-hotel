@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 //Create a HotelRoom
-router.post("/createRoom", verifyAdmin, createRoom);
+router.post("/createRoom/:hotelid", verifyAdmin, createRoom);
 
 //Get all Rooms present
 router.get("/rooms", getRooms);
@@ -19,7 +19,7 @@ router.get("/rooms", getRooms);
 router.put("/updateRoom/:id", verifyAdmin, updateRoom);
 
 //Delete a specific room
-router.delete("/deleteRoom/:id", verifyAdmin, deleteRoom);
+router.delete("/deleteRoom/:id/:hotelid", verifyAdmin, deleteRoom);
 
 //Get a specific room
 router.get("/room/:id", getRoom);

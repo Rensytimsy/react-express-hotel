@@ -42,7 +42,8 @@ User.pre("save", async function (next){
 
 //Comparing passwords
 User.methods.comparePasswords = function(password) {
-    return bcrypt.compare(this.password, password);
+    const user = this;
+    return bcrypt.compare(password, user.password);
 }
 
 

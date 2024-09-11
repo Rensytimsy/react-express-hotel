@@ -1,13 +1,21 @@
 import roomSchema from "../models/roomsModel.js";
-
+import hotelSchema from "../models/hotelModel.js";
 
 //Creating a Room.
 export const createRoom = async(req, res, next) => {
+    const rooms = new roomSchema(req.body);
+    const hotelId = req.params.hotelid;
     try{
-        const newHotelRoom = new roomSchema(req.body);
-        await newHotelRoom.save();
-        res.status(200).json({message: "Room was created."});
-    }catch(err){
+        const savedRoom = await rooms.save();
+            try{
+                const updatedHotelRooms = await hotelSchema.findByIdAndUpdate(hotelId, {
+                    $push: {rooms: savedRoom._id}
+                });
+            }catch (err){
+                next(err);
+            }
+        res.status(200).json(savedRoom);
+    }catch (err){
         next(err);
     }
 }
@@ -35,7 +43,15 @@ export const updateRoom = async(req, res, next) => {
 
 //Delete rooms
 export const deleteRoom = async(req, res, next) => {
+    const hotelId = req.params.hotelid;
     try{
+        try{
+            const updateDeletedRoom = await hotelSchema.findByIdAndUpdate(hotelId, {
+                $pull: {rooms: req.params.id}
+            });
+        }catch(err){
+            next(err);
+        }
         await roomSchema.findByIdAndDelete(req.params.id);
         res.status(200).json({message: "Room has been deleted!"});
     }catch (err) {

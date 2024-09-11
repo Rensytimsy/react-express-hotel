@@ -2,7 +2,6 @@ import userSchema from "../models/usersModel.js";
 import bcrypt from "bcryptjs";
 import {createError} from "../utils/error.js" //CreateError takes two parameter statusCode and error message.
 import jwt from "jsonwebtoken";
-import usersModel from "../models/usersModel.js";
 
 
 //Create new User/Register
@@ -22,7 +21,12 @@ export const loginUser = async(req, res, next) => {
         const avalilableuser = await userSchema.findOne({name: req.body.name});
         if(!avalilableuser) return next(createError(404, "Invalid User name!"));
 
-        const isPasswordCorrect = await bcrypt.compare(req.body.password, avalilableuser.password);
+        //Below is the userSchema.methods.comparePasswords which is a function that also does the passwords comparisons just like bcrypt.compare function. You can check it out
+        const isPasswordCorrect = await avalilableuser.comparePasswords(req.body.password);
+        
+        //Or you can uncomment the compare functioon below should work the same.
+        // const isPasswordCorrect = await bcrypt.compare(req.body.password, avalilableuser.password);
+
         if(!isPasswordCorrect) return next(createError(401, "Invalid User password!"));
 
         const {password, isAdmin, ...otherDetails} = avalilableuser._doc;

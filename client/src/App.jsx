@@ -7,7 +7,7 @@ import AboutPage from "../src/websitePages/about.jsx"
 import {Route, Routes} from "react-router-dom"
 import HotelPage from "../src/websitePages/hotels.jsx"
 import RequestedPage from "./websitePages/requestedpage.jsx";
-
+import Footer from "./websitePages/footer.jsx";
 export default function App(){
 
 
@@ -21,6 +21,7 @@ export default function App(){
           <Route path="/hotels" element={<HotelPage />}/>
           <Route path="/requestedPage" element={<RequestedPage />}/>
         </Routes>
+        <Footer />
       </div>
     </>
   )

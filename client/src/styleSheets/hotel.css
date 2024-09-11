@@ -54,7 +54,7 @@
 }
 .footer{
     /* border: 1px solid black; */
-    height: 500px;
+    height: 300px;
     background-color: rgb(117, 161, 103);
     display: flex;
     flex-direction: row;

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box"
 import { Typography } from "@mui/material"
 import NavBar from "../websitePages/nav.jsx"
 import "../styleSheets/home-page.css";
-
+import Footer from "./footer.jsx";
 import "../styleSheets/home-page.css"
 export default function AboutPage() {
     return (

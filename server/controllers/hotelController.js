@@ -3,7 +3,7 @@ import HotelSchema from "../models/hotelModel.js";
 //Get all hotels
 export const getHotels = async(req, res, next) => {
     try{
-        const hotels = await HotelSchema.find();
+        const hotels = await HotelSchema.find(req.query).limit(req.query.limit);
         res.status(200).json(hotels);
     }catch (err){
         next(err)
@@ -50,5 +50,38 @@ export const updateHotel = async(req, res, next) => {
         res.status(200).json(updatedHotel);
     }catch (err){
         res.status(500).json({message: err.message});
+    }
+}
+
+export const getHotelCount = async(req, res, next) => {
+    const cities = req.query.cities.split(",");
+    try{
+        const list = await Promise.all(cities.map(city => {
+            return HotelSchema.countDocuments({city:city});
+        }));
+        res.status(200).json(list);
+    }catch(err) {
+        next(err);
+    }
+}
+
+export const getByType = async(req, res, next) => {
+    try{
+        const hotelCount = await HotelSchema.countDocuments({type: "Hotel"});
+        const villaCount = await HotelSchema.countDocuments({type: "Villa"});
+        const cabinCount = await HotelSchema.countDocuments({type: "Cabin"});
+        const resortCount = await HotelSchema.countDocuments({type: "Resort"});
+        const apartmentCount = await HotelSchema.countDocuments({type: "Apartment"});
+
+        
+        res.status(200).json([
+            {type: "Hotel", count: hotelCount},
+            {type: "Apartment", count: apartmentCount},
+            {type: "Villa", count: villaCount},
+            {type: "Resort", count: resortCount},
+            {type: "Cabin", count: cabinCount},
+        ]);
+    }catch(err) {
+        next(err);  
     }
 }

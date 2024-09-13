@@ -5,7 +5,9 @@ import {
      getSpecificHotel,
      createHotel,
      deleteHotel,
-     updateHotel
+     updateHotel,
+     getHotelCount,
+     getByType
      } from "../controllers/hotelController.js";
 
 import {
@@ -13,6 +15,7 @@ import {
      verifyUser,
      verifyAdmin 
      } from "../utils/verifyToken.js";
+import { get } from "mongoose";
 const router = express.Router();
 
 
@@ -20,15 +23,20 @@ const router = express.Router();
 router.post("/hotel", verifyAdmin,createHotel);
 
 //Updating a hotel
-router.put("/hotel/:id", verifyAdmin, updateHotel);
+router.put("/hotel/find/:id", verifyAdmin, updateHotel);
 
 //Deleting a hotel
-router.delete("/hotel/:id", verifyAdmin, deleteHotel);
+router.delete("/hotel/find/:id", verifyAdmin, deleteHotel);
 
 //Get a specific hotel.
-router.get("/hotel/:id", getSpecificHotel);
+router.get("/hotel/find/:id", getSpecificHotel);
 
 //Get all hotels present
 router.get("/hotel", getHotels);
+
+//Get hotels by search
+router.get("/countCities", getHotelCount)
+
+router.get("/byType", getByType);
 
 export default router;

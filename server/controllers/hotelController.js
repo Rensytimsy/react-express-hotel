@@ -2,8 +2,11 @@ import HotelSchema from "../models/hotelModel.js";
 
 //Get all hotels
 export const getHotels = async(req, res, next) => {
+
+    const {min, max, ...others} = req.query;
+
     try{
-        const hotels = await HotelSchema.find(req.query).limit(req.query.limit);
+        const hotels = await HotelSchema.find({...others});
         res.status(200).json(hotels);
     }catch (err){
         next(err)

@@ -21,7 +21,7 @@ export default function Footer(){
                 </div>
                 <div className="colums">
                     <h1>Developed By</h1>
-                    <p>Founder: Timothy Mutwir</p>
+                    <p>Founder: Timothy Mutwiri</p>
                     <p>Co-founder: Joseph</p>
                     <p>Copyright@travelhotelglobal:2024</p>
                 </div>

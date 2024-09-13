@@ -2,6 +2,10 @@
     padding: 0;
     margin: 0;
 }
+body{
+    overflow-x: hidden;;
+}
+
 .homepage--image{
     width: 100%;
 }
@@ -18,7 +22,7 @@
     left: 150px
 }
 .about--intro{
-    margin: 10px 30px;
+    margin: 20px 30px;
 }
 
 
@@ -26,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: rgb(117, 161, 103);
+    background-color: rgb(119, 161, 107);
     height: 10vh;
 }
 .nav--lists{
@@ -104,7 +108,7 @@
     border-radius: 4px;
     outline: none;
     font-size: 17px;
-    color: rgb(172, 171, 171)
+    color: rgb(75, 75, 75)
 }
 .website--search--bar input::placeholder{
     font-size: 17px;
@@ -119,11 +123,12 @@
 }
 .hotels--feel{
     /* border: 1px solid black; */
-    width: 100%;
+    width: 90%;
     display: flex;
     position: relative;
-    top: 5px;
-    left: 105px
+    top: 20px;
+    left: 30px;
+    justify-content: space-around;
 }
 .hotels--card{
     width: 300px;
@@ -138,9 +143,14 @@
     border-radius: 8px;
     background: blur(8px);
 }
+.hotels--card img:hover{
+    transform:  scale(1, 1);
+    transition: 2s;
+}
+
 .hotels--card p{
     position: relative;
-    top: -40px;
+    top: -60px;
     font-size: 25px;
     font-family: sans-serif;
     color: #ffffff;
@@ -158,6 +168,7 @@
 .card--cover h1{
     margin: 0 120px;
     color: rgb(107, 107, 107);
+    font-size: 25px;
 }
 .hotels--selections{
     display: flex;
@@ -165,7 +176,7 @@
 .about--us{
     width: 80%;
     /* border: 1px solid grey; */
-    margin: auto;
+    margin: 20px 10% 5%;
 }
 .about--us h1{
     margin: 0 30px;
@@ -176,4 +187,48 @@
     line-height: 30px;
     width: 80%;
 
+}
+
+.featured--cover{
+    border: 1px solid black;
+    height: auto;
+    width: 90%;
+    margin: 10px 5%;
+    height: 20px
+}
+
+.featured--hotels{
+    display: flex;
+    flex-direction: row;
+    margin: 5% 5%;
+    /* border: 1px solid black; */
+    width: 90%;
+    justify-content: space-around;
+}
+.hotel--card{
+    border-radius: 8px;
+    position: relative;
+    width: 300px;
+    /* box-shadow: 0px 4px 5px rgba(0,0,0,0.2); */
+    margin: 0 30px;
+
+}
+
+.hotel--card img{
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 250PX;
+}
+
+.featured--h1{
+    position: relative;
+    top: 30px;
+    left: 180px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.hotel--card p{
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 5px ;
 }

@@ -98,23 +98,45 @@ body{
 .website--search--bar{
     position: relative;
     top: 80px;
+    border: 1px solid grey;
+    width: 30%;
+    left: 35%;
+    border-radius: 40px;
+    background-color: #fff;
 }
 .website--search--bar input{
     position: relative;
     height: 6vh;
-    width: 70%;
-    left: 13%;
-    border: 1px solid grey;
+    width: 90%;
+    /* border: 1px solid grey; */
     border-radius: 4px;
     outline: none;
     font-size: 17px;
-    color: rgb(75, 75, 75)
+    color: rgb(75, 75, 75);
+    border-radius: 40px;
+    left: 40px;
+    border: none
 }
 .website--search--bar input::placeholder{
     font-size: 17px;
     position: relative;
     left: 10px;
     color: rgb(172, 171, 171)
+}
+.website--search--bar button{
+    position: relative;
+    left: 100px;
+    height: 6.3vh;
+    width: 100px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.website--search--bar button:hover{
+    background-color: rgb(100, 156, 100);
+    color: #fff;
+    cursor: pointer
 }
 .content--text{
     text-align: center;
@@ -231,4 +253,84 @@ body{
     font-size: 18px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 5px ;
+}
+.requested--page{
+    height: 100vh
+}
+
+.requested--page{
+    /* border: 1px solid black; */
+    width: 90%;
+    margin: 0 5%;
+    height: auto;
+}
+.selected--hotel--img img{
+    width: 70%;
+    height: 600px;
+    position: relative;
+    left: 15%;
+}
+.selected--hotel--img p{
+    position: relative;
+    top: -536px;
+    right: 942px;
+    font-size: 70px;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #0000006e;
+    width: 200px;
+    display: inline;
+}
+.selected--hotel--rooms{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    /* border: 1px solid grey; */
+    margin: 0 5%;
+}
+.selected--room--card{
+    width: 400px;
+    height: 550px;
+    margin: 10px 20px;
+    /* border: 1px solid grey; */
+    border-top-left-radius: 8px;
+}
+.selected--room--card img{
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid grey;
+}
+.selected--room--card p{
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 3px 0;
+}
+.selected--room--card button{
+    width: 200px;
+    height: 3vh;
+    background-color: rgb(97, 133, 97);
+    color: #fff;
+    border: 1px solid grey;
+    margin: 20px 0;
+    cursor: pointer;
+}
+.selected--room--card button:hover{
+    background-color: #000000e1;
+}
+.hotel--description{
+    /* border: 1px solid grey; */
+    width: 90%;
+    margin: 5px 5% 10%; 
+}
+.hotel--description p{
+    font-size: 20px;
+    line-height: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.hotel--description .hotel--mission{
+    font-size: 35px;
+    margin: 0 0 2%;
+    text-decoration: underline;
 }

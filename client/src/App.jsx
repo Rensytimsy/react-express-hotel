@@ -19,7 +19,7 @@ export default function App(){
           <Route path="/" element={<HomePage />}/>
           <Route path="/about_us" element={<AboutPage />}/>
           <Route path="/hotels" element={<HotelPage />}/>
-          <Route path="/requestedPage" element={<RequestedPage />}/>
+          <Route path="/requestedPage/:id" element={<RequestedPage />}/>
         </Routes>
         <Footer />
       </div>

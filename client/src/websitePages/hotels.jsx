@@ -1,28 +1,16 @@
 import { useState, useEffect } from 'react'
 import useFetch from "../../hooks/useFetch.jsx"
-import SelectedHotel from './selectedhotel.jsx';
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
-export default function Hotel() {
-
-    const { data, error, loading } = useFetch("http://localhost:3000/api/hotel");
-    // console.log(data);
-    const [isClicked, setIsClicked] = useState(false);
-    const clickedHotel = (e) => {
-        setIsClicked((isClicked) => !isClicked);
-    }
-
-    console.log(isClicked);
+export default function Hotel({hotel}) {
     return (
         <>
             <div className='find--hotel--page'>
-                <div className='first--div'>
-                    <input type="search" placeholder='Search by location, price' />
-                </div>
                 <div className='second--div'>
-                    {data.map((hotel, index) => (
-                        <div className="single--hotel--div" key={index}>
+                        <div className="single--hotel--div">
                             <div className="hotel--image">
-                                <img src={hotel.photos} alt="" />
+                                <img src={hotel.photos  } alt="" />
                             </div>
                             <div className="more--selections">
                                 <h1 className='hotel--name'>{hotel.name}</h1>
@@ -34,10 +22,11 @@ export default function Hotel() {
                                 <div className="available--days">
                                     <p>Not available</p>
                                 </div>
-                                <button onClick={clickedHotel}>Book Now</button>    
+                                <Link to={`/requestedPage/${hotel._id}`}>
+                                    <button>Book Now</button>
+                                </Link>
                             </div>
                         </div>
-                    ))}
                 </div>
             </div>
         </>

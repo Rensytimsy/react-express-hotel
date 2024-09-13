@@ -17,8 +17,10 @@
     "@mui/material": "^6.0.2",
     "axios": "^1.7.7",
     "crypto": "^1.0.1",
+    "date-fns": "^3.6.0",
     "openssl": "^2.0.0",
     "react": "^18.3.1",
+    "react-date-range": "^2.0.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1"
   },

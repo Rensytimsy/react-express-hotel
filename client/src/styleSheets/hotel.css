@@ -73,9 +73,16 @@
 
 .hotels--card .hotel--card--details{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 25px 20px;
+    position: relative;
+    top: 5px;
+    color: #757575;
+    font-weight: 200;
 }
-
+.hotel--card--details--down{
+    color: grey;
+    position: relative;
+    top: 4px;
+}
 .find--hotel--page{
     /* border: 1px solid black; */
     width: 90%;

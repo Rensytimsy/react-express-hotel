@@ -1,22 +1,31 @@
-import react from "react";
-import Box from "@mui/material/Box";
+import {useState} from "react";
+import { useLocation } from "react-router-dom";
 import "../styleSheets/home-page.css";
-import NavBar from "../websitePages/nav.jsx";
 import AboutPage from "./about.jsx";
-import { Button, Card, Typography } from "@mui/material";
-import { green } from "@mui/material/colors";
-import "../styleSheets/home-page.css"
 import ConnectingAirportsIcon from '@mui/icons-material/ConnectingAirports';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 import TourIcon from '@mui/icons-material/Tour';
-import Footer from "./footer.jsx";
 import FeaturedSection from "./featured.jsx";
 import useFetch from "../../hooks/useFetch.jsx";
 import TopCities from "./topCities.jsx";
 import HotelType from "./hotelType.jsx";
-
+import { format } from "date-fns";
+import {DateRange} from "react-date-range";
+import RequestedPage from "../websitePages/requestedpage.jsx";
+import Hotel from "./hotels.jsx";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
+
+    const location = useLocation();
+    const [destination, setDestination] = useState(location.state?.destination || "");
+    const [date, setDate] = useState(location.state?.date || {date : new Date()});
+    const [openDate, setOpenDate] = useState(false);
+    const [options, setOptions] = useState(location.state?.options || {});
+
+
+    const {data, error, loading} = useFetch(`http://localhost:3000/api/hotel?city=${destination}`);
+    console.log(location)
 
     return (
         <>
@@ -40,9 +49,21 @@ export default function HomePage() {
                 </div>
 
                 <div className="website--search--bar">
-                    <input type="search" placeholder="What are you looking for? search by name, city, price" />
+                    <input
+                     type="search"
+                     placeholder="Search location here..."
+                     onChange={(e) => setDestination(e.target.value)}
+                     />
                 </div>
             </div>
+
+                {data.map((hotel) => (
+                    <>
+                        <Hotel hotel={hotel} key={hotel._id}/>
+                    </>
+                ))
+                }
+
                 <TopCities />
                 <HotelType />
                 <AboutPage />

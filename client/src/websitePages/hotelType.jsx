@@ -21,7 +21,7 @@ export default function HotelType() {
                             {data && images.map((item, index) => (
                                 <div className="hotels--card" key={index}>
                                     <img src={item} alt="" />
-                                    <p className="hotel--card--details">{data[index]?.type} ({data[index]?.count})</p>
+                                    <p className="hotel--card--details">{data[index]?.type}    ({data[index]?.count})</p>
                                 </div>
                             ))
                             }

@@ -5,7 +5,14 @@ import NavBar from "../websitePages/nav.jsx"
 import "../styleSheets/home-page.css";
 import Footer from "./footer.jsx";
 import "../styleSheets/home-page.css"
+import { useLocation } from "react-router-dom";
+
+
 export default function AboutPage() {
+
+    const location = useLocation();
+    console.log(location)
+
     return (
         <>
             <div className="about--us">

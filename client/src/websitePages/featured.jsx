@@ -17,6 +17,7 @@ export default function FeaturedSection() {
                 <p>{item.cheapestPrice}</p>
                 <p>{item.distance}</p>
                 <p>{item.desc}</p>
+                <p>{item.continent}</p>
             </div>
             ))
           }

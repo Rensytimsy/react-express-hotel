@@ -19,13 +19,13 @@ export default function HomePage() {
 
     const location = useLocation();
     const [destination, setDestination] = useState(location.state?.destination || "");
-    const [date, setDate] = useState(location.state?.date || {date : new Date()});
+    const [date, setDate] = useState([new Date()]);
     const [openDate, setOpenDate] = useState(false);
     const [options, setOptions] = useState(location.state?.options || {});
 
 
     const {data, error, loading} = useFetch(`http://localhost:3000/api/hotel?city=${destination}`);
-    console.log(location)
+    // console.log(location)
 
     return (
         <>
@@ -33,27 +33,12 @@ export default function HomePage() {
                 <div className="user--name">
                     <p>Test User</p>
                 </div>
-                <div className="more--contents">
-                    <div className="content">
-                        <ConnectingAirportsIcon sx={{ width: "100px", height: "50px" }}></ConnectingAirportsIcon>
-                        <p className="content--text">Travell</p>
-                    </div>
-                    <div className="content">
-                        <TourIcon sx={{ width: "100px", height: "50px" }}></TourIcon>
-                        <p className="content--text">Tourism</p>
-                    </div>
-                    <div className="content">
-                        <EmojiNatureIcon sx={{ width: "100px", height: "50px" }}></EmojiNatureIcon>
-                        <p className="content--text">Nature</p>
-                    </div>
-                </div>
-
                 <div className="website--search--bar">
                     <input
                      type="search"
-                     placeholder="Search location here..."
+                     placeholder="Search location here...We got it all"
                      onChange={(e) => setDestination(e.target.value)}
-                     />
+                    />
                 </div>
             </div>
 

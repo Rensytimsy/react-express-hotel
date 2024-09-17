@@ -11,7 +11,7 @@ import { useLocation } from "react-router-dom";
 export default function AboutPage() {
 
     const location = useLocation();
-    console.log(location)
+    // console.log(location)
 
     return (
         <>

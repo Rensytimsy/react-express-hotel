@@ -22,7 +22,7 @@ export default function Hotel({hotel}) {
                                 <div className="available--days">
                                     <p>Not available</p>
                                 </div>
-                                <Link to={`/requestedPage/${hotel._id}`}>
+                                <Link to={`/requestedPage/${hotel._id}`}> 
                                     <button>Book Now</button>
                                 </Link>
                             </div>

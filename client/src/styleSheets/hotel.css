@@ -119,7 +119,7 @@
 .single--hotel--div{
     /* border: 1px solid black; */
     width: 80%;
-    margin: 2% 25% 2%;
+    margin: 0% 25% -9%;
     padding: 10px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -178,3 +178,93 @@
     right: 0px;
     background-color: #fff;
 }
+.main--login--page{
+    height: 100vh;
+    width: 80%;
+    margin: 10px 10%;
+    display: flex;
+    justify-content: space-around;
+}
+.login--form--wrapper{
+    border: 1px solid grey;
+    width: 450px;
+    height: 550px;
+    border-radius: 4px;
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+.login--form--wrapper h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
+    top: 40px;
+}
+
+.login--fields{
+    position: relative;
+    top: 80px
+}
+
+.login--fields input[type="text"]::placeholder{
+    position:relative;
+    left: 10px;
+    font-size: 19px;
+}
+.login--fields input[type="password"]::placeholder{
+    position:relative;
+    left: 10px;
+    font-size: 19px;
+}
+.login--fields input[type="email"]::placeholder{
+    position:relative;
+    left: 10px;
+    font-size: 19px;
+}
+
+.login--fields input[type="text"],
+.login--fields input[type="password"],
+.login--fields input[type="email"] {
+    width: 90%;
+    margin: 10px 5%;
+    height: 4vh;
+    outline: none;
+    border: 1px solid grey;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.submit--button{
+    width: 50%;
+    height: 4vh;
+    margin: 20px 20%;
+    position: relative;
+    top: 100px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 4px;
+    border: 1px solid grey;
+    background-color: rgb(135, 192, 135);
+}
+
+.submit--button:hover{
+    background-color: #000;
+    color: #fff
+}
+
+.login--description{
+    position: relative;
+    top: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 25px;
+    width: 40%;
+    margin: 10px 0 40px;
+}
+.login--header--text{
+    font-size: 35px;
+}
+
+.login--description p{
+    font-size: 22px;
+    margin: 10px ;
+}
+

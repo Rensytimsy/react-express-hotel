@@ -35,7 +35,7 @@ body{
 }
 .nav--lists{
     display: flex;
-    margin: 10px 30px;
+    margin: 10px 80px;
 }
 .nav--lists li{
     list-style: none;
@@ -149,21 +149,57 @@ body{
     display: flex;
     position: relative;
     top: 20px;
-    left: 30px;
+    left: 5%;
     justify-content: space-around;
+    /* border: 1px solid grey; */
+    height: 200px;
+    display: flex;
+    margin: 0 0 150px;
 }
 .hotels--card{
-    width: 300px;
-    height: 270px;
+    width: 350px;
+    height: 300px;
     /* border: 1px solid grey; */
-    margin: 5px 20px;
+    margin: 10px 20px 10px;
     border-radius: 8px;
     cursor: pointer;
 }
+.hotels--card .continent--name{
+    color: #000;
+    width: 200px;
+    position: relative;
+    top: 50px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.hotels--card .hotels--present{
+    color: #000;
+    width: 100px;
+    position: relative;
+    top: 50px;
+    display: flex;
+}
+
+.continent--description{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 10px 7%;
+    color: grey
+}
+.hotels--present span{
+    display: flex;
+    position: relative;
+    margin: 2px 10px;
+    color: rgb(153, 153, 153);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
 .hotels--card img{
     width: 100%;
     border-radius: 8px;
     background: blur(8px);
+    height: 150px;
 }
 .hotels--card img:hover{
     transform:  scale(1, 1);
@@ -191,6 +227,7 @@ body{
     margin: 0 120px;
     color: rgb(107, 107, 107);
     font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .hotels--selections{
     display: flex;
@@ -247,7 +284,9 @@ body{
     position: relative;
     top: 30px;
     left: 180px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0 10px;
+    color: grey;
 }
 .hotel--card p{
     font-size: 18px;
@@ -273,12 +312,13 @@ body{
 .selected--hotel--img p{
     position: relative;
     top: -536px;
-    right: 942px;
+    right: 816px;
     font-size: 70px;
     color: #fff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #0000006e;
     width: 200px;
+    height: 100px;
     display: inline;
 }
 .selected--hotel--rooms{
@@ -291,7 +331,7 @@ body{
 .selected--room--card{
     width: 400px;
     height: 550px;
-    margin: 10px 20px;
+    margin: 10px 5%;
     /* border: 1px solid grey; */
     border-top-left-radius: 8px;
 }
@@ -333,4 +373,51 @@ body{
     font-size: 35px;
     margin: 0 0 2%;
     text-decoration: underline;
+}
+.selected--room{
+    height: 100vh;
+    display: flex;
+    /* justify-content: space-between; */
+}
+.sign--in--date{
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+    height: 4vh;
+    border: 1px solid grey;
+    padding: 10px;
+    position: relative;
+    top: 20%;
+    width: 300px;
+}
+.sign--in--date input[type="date"]{
+    border: none;
+    outline: none
+}
+.sign--in--date h1{
+    position: relative;
+    top: -10px;
+    width: 100%;
+}
+.room--images{
+    width: 60%;
+    border: 1px solid grey;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    left: 200px;
+    top: 5%
+}
+.room--photos{
+    width: 450px;
+    height: 400px;
+}
+.rooms--more{
+    position: relative;
+    top: -500px;
+}
+.room--details p{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

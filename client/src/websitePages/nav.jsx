@@ -29,9 +29,8 @@ export default function Nav(){
             <div className="nav--lists">
                 <li><Link to="/" className="a--tag">Home</Link></li>
                 <li><Link to="/about_us">About us</Link></li>
-                <li><Link to="/hotels">Hotels</Link></li>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/signup">Sign Up</Link></li>
+                <li className="login--button"><Link to="/login">Login</Link></li>
+                <li className="register--button"><Link to="/signup">Sign Up</Link></li>
             </div>
         </div>
     )

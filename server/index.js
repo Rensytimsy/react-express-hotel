@@ -18,15 +18,14 @@ const connectToDB = async() => {
 
 const port = 3000;
 const app = express();
-const corsOptions = {
-    origin: ["http://localhost:5173"],
-}
 //Midlewares
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: 'http://localhost:5173'  // Allow requests from this origin
+}));
 app.use(ApiRouter);
 
 //Error handling middleware.

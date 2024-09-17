@@ -6,6 +6,7 @@ const rooms = new Schema({
         type: String,
         required: true
     },
+    photos: [String],
     maxPeople: {
         type: Number,
         required: true

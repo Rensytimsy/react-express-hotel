@@ -1,4 +1,5 @@
 import HotelSchema from "../models/hotelModel.js";
+import RoomSchema from "../models/roomsModel.js";
 
 //Get all hotels
 export const getHotels = async(req, res, next) => {
@@ -12,6 +13,34 @@ export const getHotels = async(req, res, next) => {
         next(err)
     }
 }
+
+//Get hotels by continent endpoint
+export const getContinent = async(req, res, next) => {
+    // const continents = req.query.continents.split(",");
+    try{
+        const europeHotels = await HotelSchema.countDocuments({continent: "Europe"});
+        const africaHotels = await HotelSchema.countDocuments({continent: "Africa"});
+        const northAmericaHotels = await HotelSchema.countDocuments({continent: "NorthAmerica"});
+        const southAmericaHotels = await HotelSchema.countDocuments({continent: "SouthAmerica"});
+        const asiaHotels = await HotelSchema.countDocuments({continent: "Asia"});
+        const antarcticaHotels = await HotelSchema.countDocuments({continent: "Antarctica"});
+        const oceniaHotels = await HotelSchema.countDocuments({continent: "Ocenia"});
+
+        res.status(200).json([
+            {name: "Europe", count: europeHotels},
+            {name: "Africa", count: africaHotels},
+            {name: "North America", count: northAmericaHotels},
+            {name: "South America", count: southAmericaHotels},
+            {name: "Asia", count: asiaHotels},
+            {name: "Antarctica", count: antarcticaHotels},
+            {name: "Ocenia", count: oceniaHotels},
+        ]);
+
+    }catch (err){
+        next(err)
+    }
+}
+
 
 //Get a specific hotel
 export const getSpecificHotel = async(req, res, next) => {
@@ -86,5 +115,18 @@ export const getByType = async(req, res, next) => {
         ]);
     }catch(err) {
         next(err);  
+    }
+}
+
+//Get hotels rooms
+export const hotelRooms = async(req, res, next) => {
+    try{
+        const hotel = await HotelSchema.findById(req.params.id);
+        const hotelRooms = await Promise.all(hotel.rooms.map((room) => {
+            return RoomSchema.findById(room);
+        }));
+        res.status(200).json(hotelRooms);
+    }catch(err){
+        next(err);
     }
 }

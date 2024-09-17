@@ -12,20 +12,6 @@ import { verifyToken, verifyUser, verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
-//The code below are for testing the jwtauthentication and isAdmin functionalities you can uncomment them to test the endpoints
-
-// router.get("/userauthentication", verifyToken, (req, res, next) => {
-//     res.send("Hello user you are authenticated.");
-// });
-
-// router.get("/isauthorised/:id", verifyUser, (req, res, next) => {
-//     res.send("Hello user you are authenticated you can delete your account");
-// });
-
-// router.get("/isAdmin/:id", verifyAdmin, (req, res, next) => {
-//     res.send("Hello Admin you are authenticated.in sudo mode!");
-// });
-
 //Create a user/ register.
 router.post("/register", registerUser);
 
@@ -33,15 +19,15 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 
 //Updating users
-router.put("/user/:id", verifyUser, updateUser);
+router.put("/user/:id", updateUser);
 
 //Delete users
-router.delete("/user/:id", verifyUser, deleteUser);
+router.delete("/user/:id", deleteUser);
 
 //Get a specific user
-router.get("/user/:id", verifyUser, getUser);
+router.get("/user/:id", getUser);
 
 //Get all users
-router.get("/users", verifyAdmin, getAllUsers);
+router.get("/users", getAllUsers);
 
 export default router;

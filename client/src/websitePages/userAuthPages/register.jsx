@@ -4,16 +4,25 @@ import axios from "axios";
 
 export default function UserRegister(){
 
-    const [userData, setData] = useState({});
-    const handleChange = (e) => {
-        e.preventDefault();
-        setData((prev) => ({...prev, [e.target.id]: e.target.value}));
+    const [userData, setData] = useState({username: "", userEmail: "", userPassword: ""});
+    const handleClick = async () => {
+        try{
+        const sendUserData = await axios.post("api/auth/register", userData);
+        console.log(sendUserData)
+        }catch (err){
+            console.log(err);
+        }
     }
 
-    const handleSubmit = async () => {
-        const sendUserData = await axios.post("http://localhost:3000/api/auth/register");
-        console.log(sendUserData);
+    const handleChange = (e) => {
+        e.preventDefault();
+        const {name, value} = e.target;
+        setData({
+            ...userData,
+            [name] : value
+        });
     }
+
 
     console.log(userData);
 
@@ -47,7 +56,7 @@ export default function UserRegister(){
                         onChange={handleChange}
                         />
                         <br />
-                        <button className="submit--button" onClick={handleSubmit}>Register</button>
+                        <button className="submit--button" onClick={handleClick}>Register</button>
                     </div>
             </div>
             <div className="login--description">

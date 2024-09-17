@@ -1,71 +1,60 @@
-import axios from "axios";
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "./authContext";
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import { AuthContext } from "./authContext.jsx"
 
-const Login = () => {
+export default function UserRegister() {
   const [userData, setUserData] = useState({
-    username: "",
-    userPassword: "",
+    username: "timo",
+    userPassword: 'timo1234',
   });
 
-  const {user ,error, loading, dispatch } = useContext(AuthContext);
-
-  const navigate = useNavigate()
+  const {user ,error, loading, dispatch} = useContext(AuthContext);
 
   const handleChange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setUserData({
       ...userData,
-      [name] : value
-    })
+      [name]: value,
+    });
   };
 
   const handleClick = async (e) => {
     e.preventDefault();
-    dispatch({ type: "LOGIN_START" });
+    dispatch({type: "LOGIN_START"})
+
     try {
-      const response = await axios.post("http://localhost:3000/api/auth/login", userData, {
+      const response = await axios.post('http://localhost:3000/api/auth/login', userData, {
         headers: {
-          'Content-Type' : "application/json"
+          'Content-Type': 'application/json',  // Ensure the correct content type
         },
       });
-      dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
+      // console.log('Response:', response.data);
+      dispatch({type: "LOGIN_SUCCESS", payload: response.data})
     } catch (error) {
-      dispatch({ type: "LOGIN_FAILURE", payload: error.response.data });
+      dispatch({type: "LOGIN_FAILURE", payload:error.response.data});
     }
   };
-   
-  console.log(userData)
+
+  console.log(user);
 
   return (
-    <div className="login">
-      <div className="lContainer">
-        <input
-          type="text"
-          placeholder="username"
-          id="username"
-          name="username"
-          value={userData.username}
-          onChange={handleChange}
-          className="lInput"
-        />
-        <input
-          type="password"
-          placeholder="password"
-          id="userPassword"
-          name="userPassword"
-          value={userData.userPassword}
-          onChange={handleChange}
-          className="lInput"
-        />
-        <button onClick={handleClick} className="lButton">
-          Login
-        </button>
-        {error && <span>{error.message}</span>}
-      </div>
+    <div className="register--div">
+      <input
+        type="text"
+        name="username"
+        placeholder="username"
+        value={userData.username}
+        onChange={handleChange}
+      />
+      <input
+        type="password"
+        name="userPassword"
+        placeholder="userPassword"
+        value={userData.userPassword}
+        onChange={handleChange}
+      />
+      <button onClick={handleClick}>Login</button>
+      {error && <span>{error.message}</span>}
     </div>
   );
-};
-
-export default Login;
+}

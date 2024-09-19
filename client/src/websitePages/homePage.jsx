@@ -5,14 +5,14 @@ import AboutPage from "./about.jsx";
 import ConnectingAirportsIcon from '@mui/icons-material/ConnectingAirports';
 import EmojiNatureIcon from '@mui/icons-material/EmojiNature';
 import TourIcon from '@mui/icons-material/Tour';
-import FeaturedSection from "./featured.jsx";
+import FeaturedSection from "../websitePages/hotels/featured.jsx"
 import useFetch from "../../hooks/useFetch.jsx";
 import TopCities from "./topCities.jsx";
-import HotelType from "./hotelType.jsx";
+import HotelType from "../websitePages/hotels/hotelType.jsx"
 // import { format } from "date-fns";
 // import {DateRange} from "react-date-range";
-import RequestedPage from "../websitePages/requestedpage.jsx";
-import Hotel from "./hotels.jsx";
+import RequestedPage from "../websitePages/hotels/requestedpage.jsx";
+import Hotel from "../websitePages/hotels/hotels.jsx";
 import { Link } from "react-router-dom";
 
 export default function HomePage() {

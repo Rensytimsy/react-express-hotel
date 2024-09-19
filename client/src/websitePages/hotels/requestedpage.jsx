@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import useFetch from '../../hooks/useFetch.jsx'
+import useFetch from '../../../hooks/useFetch.jsx'
 import { useLocation } from 'react-router-dom'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,6 @@ export default function RequestedPage() {
   const handleClick = () => {
     setIsBooked((isBooked) => !isBooked);
   }
-  console.log(isBooked)
 
   const { data, loading, error } = useFetch(`http://localhost:3000/api/hotel/find/${hoteId}`);
   // console.log(data.rooms)
@@ -23,7 +22,6 @@ export default function RequestedPage() {
   useEffect(() => {
     const getRooms = async () => {
       const res = await axios.get(`http://localhost:3000/api/hotelRoom/${hoteId}`);
-      console.log(res.data);
       setRooms(res.data)
     }
     getRooms();
@@ -50,7 +48,7 @@ export default function RequestedPage() {
                 <p>Price  ${room.price} usd</p>
               </div>
               <Link to={`/selectedRoom/${room._id}`}>
-                <button onClick={handleClick}>Book now</button>
+                <button onClick={handleClick}>Book now</button> 
               </Link>
             </div>
           ))

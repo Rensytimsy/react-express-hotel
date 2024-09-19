@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import useFetch from "../../hooks/useFetch.jsx"
+import useFetch from "../../../hooks/useFetch.jsx"
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ export default function Hotel({hotel}) {
                                 <div className="available--days">
                                     <p>Not available</p>
                                 </div>
-                                <Link to={`/requestedPage/${hotel._id}`}> 
+                                <Link to={`/requestedPage/${hotel._id}`}>  
                                     <button>Book Now</button>
                                 </Link>
                             </div>

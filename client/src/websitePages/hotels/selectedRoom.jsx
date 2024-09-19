@@ -1,5 +1,8 @@
-import useFetch from "../../hooks/useFetch";
+import { useState } from "react";
+import useFetch from "../../../hooks/useFetch";
 import { useLocation } from "react-router-dom";
+import RoomsModal from "./roomsModal";
+
 
 
 export default function SelectedRoom() {
@@ -7,9 +10,15 @@ export default function SelectedRoom() {
     const roomId = location.pathname.split("/")[2];
     // console.log(roomId);
     const { data, error, loading } = useFetch(`http://localhost:3000/api/room/${roomId}`);
+    const [reserve, setReserve] = useState(false);
+
+    const handleReserve = () => {
+        setReserve(!reserve);
+    }
+
+    // console.log(reserve)
 
     const { photos } = data;
-    console.log(photos)
     return (
         <>
             <div className="selected--room">
@@ -26,8 +35,9 @@ export default function SelectedRoom() {
             </div>
             <div className="rooms--more">
                 <p>Price ${data.price}</p>
-                <button>Reserve</button>
+                <button onClick={handleReserve}>Reserve</button>
             </div>
+            {reserve ? <RoomsModal isReserved={reserve} roomNumbers={data.roomNumbers} roomPrice={data.price}/> : "..."}
         </>
     )
 }

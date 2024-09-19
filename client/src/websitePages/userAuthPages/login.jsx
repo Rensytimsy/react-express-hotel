@@ -4,8 +4,8 @@ import { AuthContext } from "./authContext.jsx"
 
 export default function UserRegister() {
   const [userData, setUserData] = useState({
-    username: "timo",
-    userPassword: 'timo1234',
+    username: "",
+    userPassword: "",
   });
 
   const {user ,error, loading, dispatch} = useContext(AuthContext);

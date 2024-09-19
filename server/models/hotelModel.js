@@ -55,6 +55,9 @@ const Hotel = new Schema({
     featured: {
         type: Boolean,
         default: false
+    },
+    location: {
+        type: String
     }
 }, {timestamps: true});
 

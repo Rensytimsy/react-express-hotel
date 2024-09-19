@@ -9,7 +9,8 @@ import {
      getHotelCount,
      getByType,
      getContinent,
-     hotelRooms
+     hotelRooms,
+     getByContinent
      } from "../controllers/hotelController.js";
 
 import {
@@ -46,5 +47,8 @@ router.get("/continent", getContinent);
 
 //Get hotel rooms
 router.get("/hotelRoom/:id", hotelRooms);
+//Get hotel by continent
+
+router.get("/continentsworld", getByContinent)
 
 export default router;

@@ -1,3 +1,4 @@
+import hotelModel from "../models/hotelModel.js";
 import HotelSchema from "../models/hotelModel.js";
 import RoomSchema from "../models/roomsModel.js";
 
@@ -126,6 +127,16 @@ export const hotelRooms = async(req, res, next) => {
             return RoomSchema.findById(room);
         }));
         res.status(200).json(hotelRooms);
+    }catch(err){
+        next(err);
+    }
+}
+
+//Get hotel by continent
+export const getByContinent = async(req, res, next) => {
+    try{
+        const continent = await hotelModel.find(req.query);
+        res.status(200).json(continent);
     }catch(err){
         next(err);
     }

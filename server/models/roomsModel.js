@@ -19,7 +19,11 @@ const rooms = new Schema({
         type: String,
         required: true
     },
-    roomNumbers: [{number: Number, unavailableDays: {type: [Date]}}],
+
+    roomNumbers: [
+        {number: Number,
+        unavailableDays: {type: [Date]}, isBooked: {type: Boolean}, isAvalable: [String]},
+    ],
 },{timestamps: true});
 
 export default mongoose.model("hotelRooms", rooms);

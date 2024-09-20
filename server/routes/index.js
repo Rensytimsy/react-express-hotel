@@ -6,6 +6,7 @@ import userRouter from "../apis/auth.js"
 
 const router = express.Router();
 
+//My router handling functionalities on the backend using the /api route
 router.use("/api", HotelsRouter);
 router.use("/api", RoomsRouter);
 router.use("/api/auth", userRouter);
